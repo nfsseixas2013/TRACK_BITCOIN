@@ -8,6 +8,9 @@ packages = [{include = "track_bitcoin"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+requests = "^2.28.2"
+yfinance = "^0.2.14"
+python-telegram-bot = "^20.2"
 
 
 [build-system]
