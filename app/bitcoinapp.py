@@ -6,6 +6,7 @@ import logging
 import time
 import telegram
 import asyncio
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -17,19 +18,23 @@ BOT_TOKEN = settings.TOKEN
 CHAT_ID = settings.CHAT_ID
 
 def get_price() -> dict:
+    """
+    Pega o valor do bid das três moedas. Se alguma falhar, 
+    ele interrompe e não manda nada
+    """
     try:
         logger.info(f" Buscando valor do Bitcoin...")
-        response1 = requests.get(BITCOIN_URL)
+        response1: requests.Response = requests.get(BITCOIN_URL)
         logger.info(f" Done!")
-        data = response1.json()
+        data: json = response1.json()
         logger.info(f" Buscando valor do Dolar...")
-        response2 = requests.get(DOLAR_URL)
+        response2: requests.Response = requests.get(DOLAR_URL)
         logger.info(f" Done!")
-        data2 = response2.json()
+        data2: json = response2.json()
         logger.info(f" Buscando valor da Libra...")
-        response3 = requests.get(LIBRA_URL)
+        response3: requests.Response = requests.get(LIBRA_URL)
         logger.info(f" Done!")
-        data3= response3.json()
+        data3: json = response3.json()
     except:
         logger.error(f"Falha ao buscar dados")
         return {}
@@ -40,6 +45,7 @@ def get_price() -> dict:
 
 async def run():
     bot = telegram.Bot(BOT_TOKEN)
+    price: float = 0
     async with bot:
         while True:
             price = get_price()
