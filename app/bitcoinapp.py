@@ -1,21 +1,20 @@
 import sys
 sys.path.append("../TRACK_BITCOIN")
-import config
+from config import settings
 import requests
 import logging
 import time
-import config
 import telegram
 import asyncio
 
 logger = logging.getLogger(__name__)
 
-BITCOIN_URL = "https://economia.awesomeapi.com.br/last/BTC-BRL"
-DOLAR_URL = "https://economia.awesomeapi.com.br/last/USD-BRL"
-LIBRA_URL = "https://economia.awesomeapi.com.br/last/GBP-BRL"
+BITCOIN_URL = settings.BITCOIN_URL
+DOLAR_URL = settings.DOLAR_URL
+LIBRA_URL = settings.LIBRA_URL
 
-BOT_TOKEN = config.TOKEN
-CHAT_ID = config.CHAT_ID
+BOT_TOKEN = settings.TOKEN
+CHAT_ID = settings.CHAT_ID
 
 def get_price() -> dict:
     try:

@@ -1,2 +1,10 @@
-TOKEN = "6230442668:AAEett8zckuMY8kSRSAet3kZ8I01_dsjNz0"
-CHAT_ID = "-1001639744538"
+
+from dynaconf import Dynaconf
+
+settings = Dynaconf(
+    envvar_prefix="DYNACONF",
+    settings_files=['settings.toml', '.secrets.toml'],
+)
+
+# `envvar_prefix` = export envvars with `export DYNACONF_FOO=bar`.
+# `settings_files` = Load these files in the order.

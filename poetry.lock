@@ -87,6 +87,24 @@ test-randomorder = ["pytest-randomly"]
 tox = ["tox"]
 
 [[package]]
+name = "dynaconf"
+version = "3.1.12"
+description = "The dynamic configurator for your Python Project"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+all = ["redis", "ruamel.yaml", "configobj", "hvac"]
+configobj = ["configobj"]
+ini = ["configobj"]
+redis = ["redis"]
+test = ["pytest", "pytest-cov", "pytest-xdist", "pytest-mock", "flake8", "pep8-naming", "flake8-debugger", "flake8-print", "flake8-todo", "radon", "flask (>=0.12)", "django", "python-dotenv", "toml", "codecov", "redis", "hvac", "configobj"]
+toml = ["toml"]
+vault = ["hvac"]
+yaml = ["ruamel.yaml"]
+
+[[package]]
 name = "frozendict"
 version = "2.3.6"
 description = "A simple immutable dictionary"
@@ -366,7 +384,7 @@ requests = ">=2.26"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "32976197c62cf97bde3f81bb7f9d43e4066d87e706150f5207053c6e1e7a1f26"
+content-hash = "b752b28362a12887900ae70c53fab7bf604d33f59a311bb002ebbdf0d46ecfc9"
 
 [metadata.files]
 anyio = []
@@ -376,6 +394,7 @@ certifi = []
 cffi = []
 charset-normalizer = []
 cryptography = []
+dynaconf = []
 frozendict = []
 h11 = []
 html5lib = []

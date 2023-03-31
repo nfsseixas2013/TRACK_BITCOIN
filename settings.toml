@@ -1,0 +1,3 @@
+BITCOIN_URL = "https://economia.awesomeapi.com.br/last/BTC-BRL"
+DOLAR_URL = "https://economia.awesomeapi.com.br/last/USD-BRL"
+LIBRA_URL = "https://economia.awesomeapi.com.br/last/GBP-BRL"
